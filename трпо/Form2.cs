@@ -52,10 +52,7 @@ namespace трпо
         private void button1_Click(object sender, EventArgs e)
         {
             Form1 main = this.Owner as Form1;
-            //double date;
-            //string sDate;
             int c;
-
 
             for (int i = 0; i < dataGridView2.RowCount - 1; i++)
             {
