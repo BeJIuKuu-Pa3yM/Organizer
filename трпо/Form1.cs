@@ -143,14 +143,14 @@ namespace трпо
                 DataTable tb = new DataTable();
                 string filename = opf.FileName;
 
-                Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel._Workbook ExcelWorkBook;
-                Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
-                Microsoft.Office.Interop.Excel.Range ExcelRange;
+                Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+                Excel._Workbook ExcelWorkBook;
+                Excel.Worksheet ExcelWorkSheet;
+                Excel.Range ExcelRange;
 
-                ExcelWorkBook = ExcelApp.Workbooks.Open(filename, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false,
+                ExcelWorkBook = ExcelApp.Workbooks.Open(filename, 0, true, 5, "", "", true, Excel.XlPlatform.xlWindows, "\t", false,
                     false, 0, true, 1, 0);
-                ExcelWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
+                ExcelWorkSheet = (Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
 
                 ExcelRange = ExcelWorkSheet.UsedRange;
                 for (rCnt = 1; rCnt <= ExcelRange.Rows.Count; rCnt++)
@@ -158,22 +158,22 @@ namespace трпо
                     dataGridView1.Rows.Add(1);
                     for (cCnt = 1; cCnt <= 1; cCnt++)
                     {
-                        str = Convert.ToString((ExcelRange.Cells[rCnt, cCnt] as Microsoft.Office.Interop.Excel.Range).Value2);
+                        str = Convert.ToString((ExcelRange.Cells[rCnt, cCnt] as Excel.Range).Value2);
                         dataGridView1.Rows[rCnt - 1].Cells[cCnt - 1].Value = str;
                     }
                     for (cCnt = 2; cCnt <= 2; cCnt++)
                     {
-                        str1 = Convert.ToInt32((ExcelRange.Cells[rCnt, cCnt] as Microsoft.Office.Interop.Excel.Range).Value2);
+                        str1 = Convert.ToInt32((ExcelRange.Cells[rCnt, cCnt] as Excel.Range).Value2);
                         dataGridView1.Rows[rCnt - 1].Cells[cCnt - 1].Value = str1;
                     }
                     for (cCnt = 3; cCnt <= 3; cCnt++)
                     {
-                        str = Convert.ToString((ExcelRange.Cells[rCnt, cCnt] as Microsoft.Office.Interop.Excel.Range).Value2);
+                        str = Convert.ToString((ExcelRange.Cells[rCnt, cCnt] as Excel.Range).Value2);
                         dataGridView1.Rows[rCnt - 1].Cells[cCnt - 1].Value = str;
                     }
                     for (cCnt = 4; cCnt <= 5; cCnt++)
                     {
-                        sDate = (ExcelRange.Cells[rCnt, cCnt] as Microsoft.Office.Interop.Excel.Range).Value2.ToString();
+                        sDate = (ExcelRange.Cells[rCnt, cCnt] as Excel.Range).Value2.ToString();
                         date = double.Parse(sDate);
                         DateTime dateTime = Convert.ToDateTime(DateTime.FromOADate(date));
                         DateTime dat = dateTime.Date;
@@ -181,12 +181,12 @@ namespace трпо
                     }
                     for (cCnt = 6; cCnt <= 6; cCnt++)
                     {
-                        str = Convert.ToString((ExcelRange.Cells[rCnt, cCnt] as Microsoft.Office.Interop.Excel.Range).Value2);
+                        str = Convert.ToString((ExcelRange.Cells[rCnt, cCnt] as Excel.Range).Value2);
                         dataGridView1.Rows[rCnt - 1].Cells[cCnt - 1].Value = str;
                     }
                     for (cCnt = 7; cCnt <= 7; cCnt++)
                     {
-                        str1 = Convert.ToInt32((ExcelRange.Cells[rCnt, cCnt] as Microsoft.Office.Interop.Excel.Range).Value2);
+                        str1 = Convert.ToInt32((ExcelRange.Cells[rCnt, cCnt] as Excel.Range).Value2);
                         dataGridView1.Rows[rCnt - 1].Cells[cCnt - 1].Value = str1;
                     }
                 }
